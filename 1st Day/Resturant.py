@@ -39,3 +39,16 @@ class Restaurant:
             print(f'Expense {amount} for {description}')
         else:
             print(f'Not enough money to pay {amount}')
+    def pay_salary(self, employee):
+        print(f'Paying salary for {employee.name} salary: {employee.salary}')
+        if employee.salary < self.balance:
+            self.balance -= employee.salary
+            self.expense += employee.salary
+            employee.receive_salary()
+
+    def show_employees(self):
+        print(f'-----------SHOWING EMPLOYEES--------')
+        if self.chef is not None:
+            print(f'Chef: {self.chef.name} with salary: {self.chef.salary}')
+        if self.server is not None:
+            print(f'Server: {self.server.name} with salary: {self.server.salary}')
